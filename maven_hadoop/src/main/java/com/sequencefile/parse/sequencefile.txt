@@ -1,0 +1,11 @@
+mahout中提供了一种将指定文件下的文件转换成sequenceFile的方式。
+（You may find Tika (http://lucene.apache.org/tika) helpful in converting binary documents to text.）
+使用方法如下：
+$MAHOUT_HOME/bin/mahout seqdirectory \
+--input <PARENT DIR WHERE DOCS ARE LOCATED> --output <OUTPUT DIRECTORY> \
+<-c <CHARSET NAME OF THE INPUT DOCUMENTS> {UTF-8|cp1252|ascii...}> \
+<-chunk <MAX SIZE OF EACH CHUNK in Megabytes> 64> \
+<-prefix <PREFIX TO ADD TO THE DOCUMENT ID>>
+
+举个例子：
+bin/mahout seqdirectory --input /hive/hadoopuser/ --output /mahout/seq/ --charset UTF-8

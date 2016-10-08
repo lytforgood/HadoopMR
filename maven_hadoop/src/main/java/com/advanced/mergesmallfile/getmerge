@@ -1,0 +1,18 @@
+1，getmerge
+
+hadoop有一个命令行工具getmerge，用于将一组HDFS上的文件复制到本地计算机以前进行合并
+
+参考：http://hadoop.apache.org/common/docs/r0.19.2/cn/hdfs_shell.html
+
+使用方法：hadoop fs -getmerge <src> <localdst> [addnl]
+
+接受一个源目录和一个目标文件作为输入，并且将源目录中所有的文件连接成本地目标文件。
+addnl是可选的，用于指定在每个文件结尾添加一个换行符。
+
+假设在你的hdfs集群上有一个/user/hadoop/output目录
+
+里面有作业执行的结果（多个文件组成）part-000000,part-000001,part-000002
+
+然后你想把所有的文件合拢来一起看 可以使用命令：hadoop fs -getmerge /user/hadoop/output local_file
+
+然后就可以在本地使用vi local_file查看内容了
